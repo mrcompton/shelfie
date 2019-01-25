@@ -27,5 +27,17 @@ module.exports = {
         dbInstance.delete_product([params.id])
         .then(() => {res.sendStatus(200)})
         .catch((err) => {res.status(500).send(err)})
+    },
+
+    editProduct: (req,res,next) => {
+        const {params} = req;
+        const dbInstance = req.app.get('db')
+        const newProduct = {
+            name: req.body.product_name,
+            price: req.body.price,
+            image: req.body.image_url
+        }
+
+        dbInstance.edit_product([params.id])
     }
 }

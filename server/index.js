@@ -15,6 +15,7 @@ massive(process.env.CONNECTION_STRING)
 app.get('/api/inventory',ctrl.getInventory)
 app.post('/api/product',ctrl.postProduct)
 app.delete(`/api/product/:id`,ctrl.deleteProduct)
+app.put('/api/product/:id',ctrl.editProduct)
 
 const PORT = 4000;
 app.listen(PORT,() => {

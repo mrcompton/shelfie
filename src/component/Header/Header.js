@@ -1,8 +1,11 @@
 import React from 'react';
+import '../Header/Header.css'
 
 const Header = function(props){
     return(
-        <div>Header</div>
+        <div id="header">
+        <h1>SHELFIE</h1>
+        </div>
     )
 }
 

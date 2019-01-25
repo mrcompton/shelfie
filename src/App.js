@@ -15,6 +15,7 @@ class App extends Component {
       currentProduct: {}
     }
     this.getInventory = this.getInventory.bind(this)
+    this.handleSetSelected = this.handleSetSelected.bind(this)
   } 
   getInventory(){
     axios.get('/api/inventory')
@@ -26,15 +27,32 @@ class App extends Component {
     this.getInventory()
   }
 
+  handleSetSelected(editProduct){
+    this.setState({currentProduct: editProduct})
+  }
+
   render(){
     return (
       <div className="App">
-        <Dashboard 
-        productList = {this.state.productList}
-        getInvFn = {this.getInventory}
-        />
-        <Form getInvFn = {this.getInventory} currentProduct = {this.state.currentProduct}/>
         <Header />
+        <div className='Form'>
+          <div>
+          <Dashboard 
+          productList = {this.state.productList}
+          getInvFn = {this.getInventory}
+          setSelectedFn = {this.handleSetSelected}
+          />
+          </div>
+          <div>
+          <Form getInvFn = {this.getInventory} currentProduct = {this.state.currentProduct}/>
+          </div>
+          
+          
+        </div>
+       
+      
+        
+        
       </div>
     );
   }

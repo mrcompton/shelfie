@@ -11,9 +11,10 @@ const Product = function(props){
                 ? (<img src = 'https://semantic-ui.com/images/wireframe/image.png' alt = 'default'/>)
                 : null
             } */}
-            <div>Name: {props.product.product_name}</div>
-            <div>Price: {props.product.price}</div>
+            <div>{props.product.product_name}</div>
+            <div>${props.product.price}</div>
             <button onClick={() => {props.deleteFn(props.product.product_id)}}>Delete</button>
+            <button>Edit</button>
         </div>
     )
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import '../Form/Form.css'
+
 
 class Form extends Component{
     constructor(){
@@ -9,7 +11,8 @@ class Form extends Component{
             inputName: '',
             inputPrice: 0,
             inputImageUrl: '',
-            cancelPushed: false
+            cancelPushed: false,
+            // currentProductId: this.props.currentProduct.product_id
         }
     }
 
@@ -41,16 +44,22 @@ class Form extends Component{
 
         axios.post('/api/product',bodyObj)
         .then(response => {
-            console.log(response)
+            // console.log(response)
             this.props.getInvFn()
         })
         this.handleClearInput()
         
     }
+
+    // componentDidUpdate(oldProps){
+    //     if(oldProps !== this.state.currentProductId){
+
+    //     }
+    // }
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         return(
-            <div>Form
+            <div>
                 <input onChange={(e) => {this.handleImageInput(e.target.value)}} 
                         value = {this.state.inputImageUrl} placeholder ='image url here'/>
                 <input onChange={(e) => {this.handleNameInput(e.target.value)}} 

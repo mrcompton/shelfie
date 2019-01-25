@@ -19,14 +19,22 @@ class Dashboard extends Component{
             this.props.getInvFn()
         })
     }
+
+    handleEdit(){
+        
+    }
     render(){
         const mappedProducts = this.props.productList.map((eachProduct) => {
             return(
-                <div><Product product={eachProduct} deleteFn ={this.handleDelete} /></div>
+                <div><Product 
+                product={eachProduct} 
+                deleteFn ={this.handleDelete} 
+                setSelectedFn = {this.props.setSelectedFn}
+                /></div>
             )
         })
         return(
-            <div>Dashboard
+            <div>
                 {mappedProducts}
             </div>
         );
